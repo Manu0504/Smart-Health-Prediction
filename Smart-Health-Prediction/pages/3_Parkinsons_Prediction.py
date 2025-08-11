@@ -4,7 +4,7 @@ from utils.data_handler import save_patient_data
 from utils.model_loader import load_model_and_scaler
 
 # Load model and scaler
-model, scaler = load_model_and_scaler("models/parkinsons_model.pkl", "models/parkinsons_scaler.pkl")
+model, scaler = load_model_and_scaler("diabetes_model.pkl", "diabetes_scaler.pkl")
 
 st.title("🧠 Parkinson's Disease Prediction")
 
@@ -32,3 +32,4 @@ if st.button("Predict"):
     result = "Positive" if prediction[0] == 1 else "Negative"
     st.success(f"✅ {result} for Parkinson's Disease")
     save_patient_data(name, address, "Parkinson's Disease", result)
+
