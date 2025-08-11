@@ -3,8 +3,8 @@ import numpy as np
 from utils.data_handler import save_patient_data
 from utils.model_loader import load_model_and_scaler
 
-# Load model and scaler
-model, scaler = load_model_and_scaler("models/heart_model.pkl", "models/heart_scaler.pkl")
+# Load model and scaler without hardcoding "models/"
+model, scaler = load_model_and_scaler("heart_model.pkl", "heart_scaler.pkl")
 
 st.title("❤️ Heart Disease Prediction")
 
@@ -30,6 +30,7 @@ slope = st.selectbox("Slope of Peak Exercise ST Segment (0-2)", [0, 1, 2])
 ca = st.selectbox("Number of Major Vessels (0-3)", [0, 1, 2, 3])
 thal = st.selectbox("Thalassemia (0=Normal, 1=Fixed Defect, 2=Reversible Defect)", [0, 1, 2])
 
+# Prediction
 if st.button("Predict"):
     features = np.array([[age, sex, cp, trestbps, chol, fbs, restecg, thalach,
                           exang, oldpeak, slope, ca, thal]])
